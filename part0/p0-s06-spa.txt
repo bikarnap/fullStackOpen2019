@@ -1,0 +1,14 @@
+browser->server:HTTP POST request https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+server responds with a message
+"new note created", and does not ask for
+addition request
+end note
+
+server-->browser:HTTP status code 201 created
+
+note over browser:
+browser renders the new note
+as a list 
+end note
