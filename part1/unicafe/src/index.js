@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 const Button = ({handleClick, text}) => 
     <button onClick={handleClick}>{text}</button>
 
-const Statistics = ({feedback, value, unit}) => {
+const Statistic = ({feedback, value, unit}) => {
     if(isNaN(value)) {
         return (
             <table>
@@ -41,7 +41,7 @@ const App = () => {
 
     return (
         <>
-            <h1>give Statistics</h1>
+            <h1>give feedback</h1>
             
                 <Button handleClick={handleGoodClick} text='good' />
                 <Button handleClick={handleNeutralClick} text='neutral' />
@@ -49,32 +49,32 @@ const App = () => {
             
             <h1>statistics</h1>
 
-                <Statistics 
+                <Statistic 
                     feedback='good' 
                     value={good} 
                     unit='' 
                 />
-                <Statistics 
+                <Statistic 
                     feedback='neutral' 
                     value={neutral} 
                     unit='' 
                 />
-                <Statistics 
+                <Statistic 
                     feedback='bad' 
                     value={bad} 
                     unit='' 
                 />
-                <Statistics 
+                <Statistic 
                     feedback='all' 
                     value={good + neutral + bad} 
                     unit='' 
                 />
-                <Statistics 
+                <Statistic 
                     feedback='average' 
                     value={(good-bad)/(good + neutral + bad)} 
                     unit='' 
                 />
-                <Statistics 
+                <Statistic 
                     feedback='positive' 
                     value={((good/(good + neutral + bad))*100)} 
                     unit=" %"
