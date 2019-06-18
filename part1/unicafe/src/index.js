@@ -54,29 +54,47 @@ const App = () => {
     }
 
     return (
-        <div>
+        <>
             <h1>give Statistics</h1>
-            <div>
+            
                 <Button handleClick={handleGoodClick} text='good' />
                 <Button handleClick={handleNeutralClick} text='neutral' />
                 <Button handleClick={handleBadClick} text='bad' />
-            </div>
             
             <h1>statistics</h1>
 
-            <div>
-                <Statistics feedback='good' value={good} unit='' />
-                <Statistics feedback='neutral' value={neutral} unit='' />
-                <Statistics feedback='bad' value={bad} unit='' />
-                <Statistics feedback='all' value={good + neutral + bad} unit='' />
-                <Statistics feedback='average' 
-                         value={(good-bad)/(good + neutral + bad)} unit='' />
-                <Statistics feedback='positive' 
-                         value={((good/(good + neutral + bad))*100)} unit=" %" />
-            </div>
+                <Statistics 
+                    feedback='good' 
+                    value={good} 
+                    unit='' 
+                />
+                <Statistics 
+                    feedback='neutral' 
+                    value={neutral} 
+                    unit='' 
+                />
+                <Statistics 
+                    feedback='bad' 
+                    value={bad} 
+                    unit='' 
+                />
+                <Statistics 
+                    feedback='all' 
+                    value={good + neutral + bad} 
+                    unit='' 
+                />
+                <Statistics 
+                    feedback='average' 
+                    value={(good-bad)/(good + neutral + bad)} 
+                    unit='' 
+                />
+                <Statistics 
+                    feedback='positive' 
+                    value={((good/(good + neutral + bad))*100)} 
+                    unit=" %"
+                />
             
-            
-        </div>
+        </>
     )
 }
 
