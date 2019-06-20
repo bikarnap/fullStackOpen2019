@@ -4,14 +4,14 @@ const Person = ({ person }) => <p>{person.name}</p>
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    {name: 'Arto Hellas', id: 1}
+    {name: 'Arto Hellas'}
   ])
   const [ newName, setNewName ] = useState('new name')
 
   const names = () =>
     persons.map(person => 
       <Person 
-          key={person.id}
+          key={person.name}
           person={person}
       />    
   )
@@ -19,8 +19,7 @@ const App = () => {
   const addNewPerson = (event) => {
     event.preventDefault()
     const personObject = {
-        name: newName,
-        id: persons.length + 1
+        name: newName
     }
     setPersons(persons.concat(personObject))
     setNewName('')
