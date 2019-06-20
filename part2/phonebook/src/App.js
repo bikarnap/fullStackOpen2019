@@ -6,7 +6,7 @@ const App = () => {
   const [ persons, setPersons ] = useState([
     {name: 'Arto Hellas'}
   ])
-  const [ newName, setNewName ] = useState('new name')
+  const [ newName, setNewName ] = useState('')
 
   const names = () =>
     persons.map(person => 
@@ -19,14 +19,25 @@ const App = () => {
   const addNewPerson = (event) => {
     event.preventDefault()
     const personObject = {
-        name: newName
+      name: newName
     }
-    setPersons(persons.concat(personObject))
+    let nameExists = false
+    for(let i = 0; i < persons.length; i++) {
+      if(persons[i].name === personObject.name){
+        nameExists = true
+        break
+      }
+    }
+    if(!nameExists) {
+      setPersons(persons.concat(personObject))
+      nameExists = false
+    } else {
+      alert(`${newName} is already added to phonebook`)
+    }
     setNewName('')
-}
+  }
 
   const handleNewName = (event) => setNewName(event.target.value)
-
 
   return (
     <div>
