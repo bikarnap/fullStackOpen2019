@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Persons from './components/Persons'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 
 const App = () => {
-  const [ persons, setPersons ] = useState([
-    {name: 'Arto Hellas', number: '123-456-789'}, 
-    {name: 'David Asphalt', number: '123-456-312'},
-    {name: 'Antti Hellas', number: '123-456-789'}, 
-    {name: 'Rafique Asphalt', number: '123-456-312'}
-  ])
+  const [ persons, setPersons ] = useState([])
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNumber ] = useState('')
   const [ filteredName, setFilteredName ] = useState('')
+
+  
+
+  console.log('render', persons.length, 'persons')
+  
 
   const nameExists = (personObject) => {
     let exists = false
