@@ -10,7 +10,14 @@ const App = () => {
   const [ newNumber, setNumber ] = useState('')
   const [ filteredName, setFilteredName ] = useState('')
 
-  
+  useEffect(() => {
+    console.log('effect')
+    axios
+        .get('http://localhost:3001/persons')
+        .then(response => {
+          setPersons(response.data)
+        })
+  }, [])
 
   console.log('render', persons.length, 'persons')
   
